@@ -1,11 +1,11 @@
 import profilePicture from "../assets/Stuart.webp";
 
-export function Profile() {
+export function Profile({ username, name, bio, posts }) {
   return (
     <>
       <section className="w-full flex flex-col items-center px-3">
         <div className="">
-          <h1 className="text-md font-bold py-2">Stuart</h1>
+          <h1 className="text-md font-bold py-2">{username}</h1>
         </div>
 
         <div className="flex justify-between w-full">
@@ -19,7 +19,7 @@ export function Profile() {
 
           <div className="grid grid-cols-3 items-center gap-4 px-4">
             <article className="flex flex-col items-center">
-              <span className="font-bold text-l">600</span>
+              <span className="font-bold text-l">{posts}</span>
               <p className="font-medium text-xs">Posts</p>
             </article>
             <article className="flex flex-col items-center">
@@ -34,11 +34,8 @@ export function Profile() {
         </div>
 
         <div className="flex flex-col justify-start w-full mt-5 gap-0.5">
-          <h3 className="font-bold text-xs">Stuart</h3>
-          <p className="text-xs">
-            Banana! Papoy gelato ti amo bakar bapple? Tulaliloo tipee! nasi
-            goreng
-          </p>
+          <h3 className="font-bold text-xs">{name}</h3>
+          <p className="text-xs">{bio}</p>
           <a href="" className="text-xs text-blue-950">
             www.stuart-minion.com
           </a>

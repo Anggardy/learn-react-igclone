@@ -2,11 +2,13 @@ import post from "../assets/posts/3 Minions.jpg";
 import grid from "../assets/navbar/grid.png";
 import tag from "../assets/navbar/tag.png";
 
-const PostCard = () => {
+const PostList = [post];
+
+const PostCard = ({ imagePost }) => {
   return (
     <div className="w-full aspect-square overflow-hidden">
       <img
-        src={post}
+        src={imagePost}
         alt="post"
         className="w-full h-full object-cover object-center"
       />
@@ -28,13 +30,7 @@ export const PostGrid = () => {
         </div>
 
         <div className="grid grid-cols-3 gap-1">
-          <PostCard />
-          <PostCard />
-          <PostCard />
-          <PostCard />
-          <PostCard />
-          <PostCard />
-          <PostCard />
+          <PostCard imagePost={PostList[0]} />
         </div>
       </section>
     </>
