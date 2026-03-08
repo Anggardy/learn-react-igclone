@@ -1,11 +1,11 @@
 import profilePicture from "../assets/Stuart.webp";
 
-export function Profile({ username, name, bio, posts }) {
+export function Profile({ userData }) {
   return (
     <>
       <section className="w-full flex flex-col items-center px-3">
         <div className="">
-          <h1 className="text-md font-bold py-2">{username}</h1>
+          <h1 className="text-md font-bold py-2">{userData.username}</h1>
         </div>
 
         <div className="flex justify-between w-full">
@@ -19,25 +19,29 @@ export function Profile({ username, name, bio, posts }) {
 
           <div className="grid grid-cols-3 items-center gap-4 px-4">
             <article className="flex flex-col items-center">
-              <span className="font-bold text-l">{posts}</span>
+              <span className="font-bold text-l">{userData.stats.posts}</span>
               <p className="font-medium text-xs">Posts</p>
             </article>
             <article className="flex flex-col items-center">
-              <span className="font-bold text-l">10M</span>
+              <span className="font-bold text-l">
+                {userData.stats.followers}
+              </span>
               <p className="font-medium text-xs">Followers</p>
             </article>
             <article className="flex flex-col items-center">
-              <span className="font-bold text-l">5</span>
+              <span className="font-bold text-l">
+                {userData.stats.following}
+              </span>
               <p className="font-medium text-xs">Following</p>
             </article>
           </div>
         </div>
 
         <div className="flex flex-col justify-start w-full mt-5 gap-0.5">
-          <h3 className="font-bold text-xs">{name}</h3>
-          <p className="text-xs">{bio}</p>
+          <h3 className="font-bold text-xs">{userData.name}</h3>
+          <p className="text-xs">{userData.bio}</p>
           <a href="" className="text-xs text-blue-950">
-            www.stuart-minion.com
+            {userData.website}
           </a>
         </div>
 

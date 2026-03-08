@@ -1,8 +1,5 @@
-import post from "../assets/posts/3 Minions.jpg";
 import grid from "../assets/navbar/grid.png";
 import tag from "../assets/navbar/tag.png";
-
-const PostList = [post];
 
 const PostCard = ({ imagePost }) => {
   return (
@@ -16,7 +13,7 @@ const PostCard = ({ imagePost }) => {
   );
 };
 
-export const PostGrid = () => {
+export const PostGrid = (posts) => {
   return (
     <>
       <section className="flex-1 flex flex-col justify-start border-t border-gray-400 ">
@@ -30,7 +27,9 @@ export const PostGrid = () => {
         </div>
 
         <div className="grid grid-cols-3 gap-1">
-          <PostCard imagePost={PostList[0]} />
+          {posts.map((url, index) => (
+            <PostCard key={index} imagePost={url} />
+          ))}
         </div>
       </section>
     </>
