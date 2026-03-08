@@ -13,16 +13,16 @@ const PostCard = ({ imagePost }) => {
   );
 };
 
-export const PostGrid = (posts) => {
+export const PostGrid = ({ posts }) => {
   return (
     <>
       <section className="flex-1 flex flex-col justify-start border-t border-gray-400 ">
         <div className="grid grid-cols-2 items-center">
           <div className="flex justify-center border-b-2 border-black py-2">
-            <img src={grid} alt="post" className="h-8" />
+            <img src={grid} alt="post" className="h-6" />
           </div>
           <div className="flex justify-center py-2">
-            <img src={tag} alt="tag" className="h-8 w-8" />
+            <img src={tag} alt="tag" className="h-8" />
           </div>
         </div>
 

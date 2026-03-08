@@ -1,7 +1,7 @@
 import "./App.css";
-import Navbar from "./components/navbar";
-import { PostGrid } from "./components/postGrid";
-import { Profile } from "./components/profileInfo";
+import Navbar from "./components/Navbar";
+import { PostGrid } from "./components/PostGrid";
+import { Profile } from "./components/ProfileInfo";
 
 function App() {
   const user = {
