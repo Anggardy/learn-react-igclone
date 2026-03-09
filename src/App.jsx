@@ -7,7 +7,7 @@ function App() {
   const user = {
     username: "stuart_minion",
     name: "Stuart",
-    stats: { posts: 10, followers: "10M", following: 5 },
+    stats: { posts: 10, followers: 10, following: 5 },
     bio: "Banana! Papoy gelato ti amo bakar bapple? Tulaliloo tipee! nasi goreng",
     website: "www.stuart-minion.com",
   };
