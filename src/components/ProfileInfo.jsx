@@ -1,7 +1,7 @@
 import profilePicture from "../assets/Stuart.webp";
-import { useMemo } from "react";
 import useFollow from "../hooks/useFollow";
 import useBio from "../hooks/useBio";
+import usePopularity from "../hooks/usePopularity";
 
 const StatItem = ({ label, value }) => (
   <article className="flex flex-col items-center">
@@ -20,14 +20,8 @@ export function Profile({ userData }) {
   // Modul Bio
   const { bioValue, handleBioChange, maxLength } = useBio(userData.bio);
 
-  // UseMemo
-  const popularityLevel = useMemo(() => {
-    console.log("Jumlah follower sedang dihitung...");
-
-    if (followerCount > 50) return "Influencer";
-    if (followerCount > 10) return "Rising Star";
-    return "Newcomer";
-  }, [followerCount]);
+  // Modul Popularity
+  const popularity = usePopularity(followerCount);
 
   return (
     <>
@@ -36,9 +30,11 @@ export function Profile({ userData }) {
         <div className="">
           <h1 className="text-md font-bold py-2">{userData.username}</h1>
         </div>
+
+        {/* Popularity */}
         <div className="bg-gray-100 px-3 py-1 rounded-full mb-4">
           <span className="text-[10px] font-bold text-blue-600 uppercase tracking-widest">
-            {popularityLevel}
+            {popularity}
           </span>
         </div>
 
