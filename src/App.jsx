@@ -1,7 +1,8 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Navbar from "./components/Navbar";
-import { PostGrid } from "./components/PostGrid";
-import { Profile } from "./components/ProfileInfo";
+import ProtectedRoute from "./components/ProtectedRoute";
+import ProfilePage from "./pages/ProfilePage";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   const user = {
@@ -24,19 +25,25 @@ function App() {
     "https://picsum.photos/400?random=9",
   ];
 
+  // const isLoggedIn = true;
+
   return (
     <>
-      <div className="h-screen flex flex-col gap-3">
-        <section className=" top-0">
-          <Profile userData={user} />
-        </section>
-        <main className="flex-1 overflow-y-auto">
-          <PostGrid posts={allPosts} />
-        </main>
-        <nav className="sticky bottom-0 bg-white">
-          <Navbar />
-        </nav>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          {/* Pintu Utama */}
+          <Route path="/login" element={<LoginPage />} />
+
+          {/* Pintu Khusus */}
+          <Route
+            path="/profile"
+            element={<ProfilePage userData={user} allPosts={allPosts} />}
+          />
+
+          {/* Jika nyasar */}
+          <Route path="*" element={<div>Halaman tidak ditemukan</div>} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

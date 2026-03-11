@@ -10,7 +10,7 @@ const StatItem = ({ label, value }) => (
   </article>
 );
 
-export function Profile({ userData }) {
+export function ProfileInfo({ userData }) {
   // Modul Follow
   const { isFollowing, followerCount, toggleFollow } = useFollow(
     userData.stats.followers,
@@ -25,7 +25,7 @@ export function Profile({ userData }) {
 
   return (
     <>
-      <section className="w-full flex flex-col items-center px-3">
+      <section className="w-full flex flex-col items-center px-3 py-3">
         {/* UserName */}
         <div className="">
           <h1 className="text-md font-bold py-2">{userData.username}</h1>
